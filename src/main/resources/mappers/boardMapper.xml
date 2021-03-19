@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.boardMapper">
+
+	<!-- 
+		mybatis-config.xml의 typeAlias에 등록해두지 않았다면 
+		
+		<select id="selectMember" resultType="com.example.dto.MemberVO" >
+			
+		</select>
+		
+		이렇게 해야 한다.
+	-->
+	<select id="selectMember" resultType="boardVO">
+		select idx,title, content, writer, regDate, viewCnt from board order by regDate desc;
+	</select>
+	<select id="view" resultType="boardVO">
+		SELECT idx, title, content, writer, regDate, viewCnt FROM board where idx = #{idx}
+	</select>
+	<select id="delete">
+		DELETE FROM board where idx = #{idx}
+	</select>
+	<select id="modify">
+		UPDATE board set title = #{title}, content = #{content}, writer = #{writer}, regDate = now() where idx = #{idx}
+	</select>
+	<select id="write">
+		INSERT into board(title, content, writer) values(#{title}, #{content}, #{writer})
+	</select>
+	<select id="count">
+		UPDATE board set viewCnt = viewCnt + 1 where idx = #{idx}
+	</select>
+	<insert id="register">
+		insert into member(id, password) values(#{id}, #{password})
+	</insert>
+	
+	
+	<!-- 총 게시글 갯수 출력 -->
+<select id="countBoard" resultType="int">
+	SELECT COUNT(*) FROM BOARD
+</select>
+
+<!-- 페이징 처리 후 게시글 조회 -->
+<select id="selectBoard" resultType="com.example.dto.BoardVO">
+<![CDATA[
+	select idx,title, content, writer, regDate, viewCnt from board order by idx desc limit #{start}, #{cntPerPage}
+	]]>
+</select>
+	
+</mapper>
