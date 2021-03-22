@@ -15,12 +15,12 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Inject
 	private SqlSession sqlSession;
-	private static final String Namespace = "com.example.mapper.boardMapper";
+	private static final String Namespace = "com.example.mapper.boardMapper";  //매퍼의 네임스페이스와 이름이 같아야 한다.
 	
 	@Override
 	public List<BoardVO> selectMember() throws Exception {
 
-		return sqlSession.selectList(Namespace+".selectMember");
+		return sqlSession.selectList(Namespace+".selectMember");  //Namespace 뒤에 오는 이름은 매퍼의 select id와 같아야한다.
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void delete(int idx) throws Exception {
-		sqlSession.selectOne(Namespace + ".delete",idx);
+		sqlSession.delete(Namespace + ".delete",idx);
 	}
 
 	@Override

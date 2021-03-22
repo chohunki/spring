@@ -20,18 +20,18 @@
 	<select id="view" resultType="boardVO">
 		SELECT idx, title, content, writer, regDate, viewCnt FROM board where idx = #{idx}
 	</select>
-	<select id="delete">
+	<delete id="delete">
 		DELETE FROM board where idx = #{idx}
-	</select>
-	<select id="modify">
+	</delete>
+	<update id="modify">
 		UPDATE board set title = #{title}, content = #{content}, writer = #{writer}, regDate = now() where idx = #{idx}
-	</select>
-	<select id="write">
+	</update>
+	<insert id="write">
 		INSERT into board(title, content, writer) values(#{title}, #{content}, #{writer})
-	</select>
-	<select id="count">
+	</insert>
+	<update id="count">
 		UPDATE board set viewCnt = viewCnt + 1 where idx = #{idx}
-	</select>
+	</update>
 	<insert id="register">
 		insert into member(id, password) values(#{id}, #{password})
 	</insert>

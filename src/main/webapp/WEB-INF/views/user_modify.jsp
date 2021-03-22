@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-	alert("로그아웃 되었습니다.");
+	alert("수정되었습니다. 다시 로그인 해주세요");
 	location.href="/";
 </script>
 </body>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-	alert("로그아웃 되었습니다.");
+	alert("탈퇴완료 되었습니다. 이용해주셔서 감사합니다");
 	location.href="/";
 </script>
 </body>

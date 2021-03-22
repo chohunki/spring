@@ -8,8 +8,8 @@
 </head>
 <body>
 <script>
-	alert("로그아웃 되었습니다.");
-	location.href="/";
+	alert("비밀번호를 확인해보세요");
+	location.href="/user_deleteform";
 </script>
 </body>
 </html>

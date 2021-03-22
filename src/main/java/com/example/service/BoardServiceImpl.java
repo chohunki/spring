@@ -48,12 +48,12 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int countBoard() {
+	public int countBoard() throws Exception {
 		return dao.countBoard();
 	}
 
 	@Override
-	public List<BoardVO> selectBoard(PagingVO vo) {
+	public List<BoardVO> selectBoard(PagingVO vo) throws Exception {
 		return dao.selectBoard(vo);
 	}
 

@@ -18,10 +18,27 @@ function goBoardDetail(idx){
 </script>
 
 <body>
+<nav class="navbar navbar-expand-sm bg-light"> 
+<!-- 리스트 : 부트스트랩은 모바일 우선이라 화면이 작으면 아래로 쌓아서 내려온다 --> 
+	<ul class="navbar-nav">
+		<li class="nav-item">
+  			<a class="nav-link" href="/home">게시글 목록</a> 
+  		</li>
+  		<li class="nav-item">
+   			<a class="nav-link" href="/logout">로그아웃</a>
+    	</li>
+    	<li class="nav-item">
+   			<a class="nav-link" href="/mypage">마이페이지</a>
+    	</li>
+    </ul>
+</nav>
+
+
+
 <div class="container" align="center">
 	<h1 a>게시글 목록</h1>
-	<div class="container" align="left">
-		<button name = "write" class="btn btn-lg btn-primary btn-block" onclick="location.href='/writeform'" style="width: 20%" >글작성하기</button>
+	<div class="container" align="left" style="margin-bottom: 10px;">
+		<button name = "write" class="btn btn-sm btn-primary btn-block" onclick="location.href='/writeform'" style="width: 20%" >글작성하기</button>
 	</div>
 	<table class="table table-hover">
 		<thead>
@@ -36,9 +53,9 @@ function goBoardDetail(idx){
 		</thead>
 		<tbody>
 			<c:forEach items="${viewAll}" var="viewAll">
-				<tr>				      
+				<tr onclick='javascript:goBoardDetail("${viewAll.idx}");'>				      
 					<td>${viewAll.idx}</td>
-					<td onclick='javascript:goBoardDetail("${viewAll.idx}");'">${viewAll.title}</td>
+					<td>${viewAll.title}</td>
 					<td>${viewAll.content}</td>
 					<td>${viewAll.writer}</td>
 					<td><fmt:formatDate value="${viewAll.regDate}" pattern="yyyy.MM.dd"/></td>
@@ -51,13 +68,15 @@ function goBoardDetail(idx){
 	</div>
 	
 	<div style="display: block; text-align: center;">
-	<ul class="pagination justify-content-center">	
+	<ul class="pagination justify-content-center pagination-sm">	
 		<c:if test="${paging.startPage != 1 }">
 			<li class="page-item"><a href="/home?nowPage=${paging.startPage - 2 }&cntPerPage=${paging.cntPerPage}" class="page-link">&lt;</a></li>
 		</c:if>
+		<!-- 
 		<c:if test="${paging.nowPage < paging.startPage - 2}">			
 			<li class="page-item"><a href="/home?nowPage=${paging.startPage -3 }&cntPerPage=${paging.cntPerPage}" class="page-link">이전</a></li>
 		</c:if>
+		-->
 		<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
 			<c:choose>
 				<c:when test="${p == paging.nowPage }">

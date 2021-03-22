@@ -8,6 +8,6 @@
 </head>
 <body>
 check
-<meta http-equiv="refresh" content="1; url=/home"></meta>
+<meta http-equiv="refresh" content="0; url=/home"></meta>
 </body>
 </html>
