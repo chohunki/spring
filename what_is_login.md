@@ -106,3 +106,5 @@ session-id가 존재하지 않는다면,
 
 
 ![image](https://user-images.githubusercontent.com/80931911/111969114-3e55ac00-8b3d-11eb-81e4-ce3d535d70fc.png)
+
+![image](https://user-images.githubusercontent.com/80931911/111969536-b328e600-8b3d-11eb-8b5e-3a852c8b06f5.png)
